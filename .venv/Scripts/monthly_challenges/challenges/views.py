@@ -8,7 +8,7 @@ monthly_challenges = {
 }
 
 
-def index():
+def index(request):
     months = list(monthly_challenges.keys())
     return render(request, "challenges/index.html", {
         "month": months
@@ -24,11 +24,10 @@ def monthly_challenge_by_number(request, month):
     redirected_path = reverse("month-challenge", args=[redirected_month])
     return HttpResponseRedirect(redirected_path)
 
-
 def monthly_challenge(request, month):
     try:
         challenge_text = monthly_challenges[month]
-        return render(request, "challenges/challenges.html", {
+        return render(request, "challenges/challenge.html", {
             "text": challenge_text, "month": month.capitalize()
         })
     except:
