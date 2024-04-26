@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>all challenges</title>
-</head>
-<body>
-<ul>
-    {% for month in months %}
-    <li><a href="{% url 'month-challenge' month %}">{{ month|title }}</a></li>
-    {% endfor %}
-</ul>
-</body>
-</html>
+{% {% extends "base.html" %} %}
+    {% {% block page_title %}
+     <title>all challenges</title>
+    {% endblock page_title %} %}
+    {% {% block page_body %}
+        <ul>
+            {% for month in months %}
+                <li><a href="{% url 'month-challenge' month %}">{{ month|title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endblock page_body %} %}
