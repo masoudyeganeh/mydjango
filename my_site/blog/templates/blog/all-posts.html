@@ -5,8 +5,8 @@ all posts
 {% block page_body %}
 <h1>this page shows all posts</h1>
 <ul>
-    {% for post in posts %}
-        <li><a href="{% url 'post' post %}">p</a></li>
+    {% for post in all_posts %}
+        <li><a href="{% url "posturl" forloop.counter %}">{{ post }}</a></li>
     {% endfor %}
 </ul>
 {% endblock page_body %}
